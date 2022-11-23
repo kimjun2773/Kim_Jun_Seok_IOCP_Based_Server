@@ -3,7 +3,7 @@
 
 IOCP::IOCP(): m_hIOCP(INVALID_HANDLE_VALUE), m_iThreadCnt(0)
 {
-	m_vNetworkThread.clear();
+	m_vWorkerThread.clear();
 }
 
 IOCP::~IOCP()
@@ -40,6 +40,6 @@ void IOCP::Run(void)
 {
 	for (int i = 0; i<m_iThreadCnt; ++i)
 	{
-		m_vNetworkThread.emplace_back(std::thread(&IOCP::ThreadMain, this));
+		m_vWorkerThread.emplace_back(std::thread(&IOCP::ThreadMain, this));
 	}
 }

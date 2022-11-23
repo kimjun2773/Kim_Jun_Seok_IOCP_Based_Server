@@ -13,5 +13,5 @@ protected: virtual void					ThreadMain(void) = 0;
 
 protected: HANDLE						m_hIOCP;
 protected: size_t						m_iThreadCnt;
-protected: std::vector<std::thread>		m_vNetworkThread;
+protected: std::vector<std::thread>		m_vWorkerThread;
 };
